@@ -34,7 +34,6 @@ plt.show()
 ### Results
 
 ![Visualization of most Demanded Skills of Top Data Roles](2_Project/images/Skill_Demand.png)
-
 *Visualization of Most In-Demand skills of Top Data Roles.*
 
 ### Insights
@@ -126,7 +125,6 @@ plt.show()
 ### Results
 
 ![Trending Top-Skills for Data Analysts in the US](2_Project/images/Skill_Trend.png)
-
 *Linegraph Visualizing the trending top skills for Data Analysts in the US in 2023.*
 
 ### Insights

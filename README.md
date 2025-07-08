@@ -34,6 +34,7 @@ plt.show()
 ### Results
 
 ![Visualization of most Demanded Skills of Top Data Roles](2_Project/images/Skill_Demand.png)
+
 *Visualization of Most In-Demand skills of Top Data Roles.*
 
 ### Insights
@@ -125,6 +126,7 @@ plt.show()
 ### Results
 
 ![Trending Top-Skills for Data Analysts in the US](2_Project/images/Skill_Trend.png)
+
 *Linegraph Visualizing the trending top skills for Data Analysts in the US in 2023.*
 
 ### Insights
@@ -146,3 +148,118 @@ plt.show()
 * August sees a temporary spike in Tableau demand, suggesting increased need for data visualization during that period.
 
 * Python and Tableau converge in Q4, showing that either tool could be valuable depending on the job listing.
+
+## 2. How well do Jobs and Skills pay for Data Analysts?
+
+### Salary Analysis for Data Roles
+
+### Visualizing Data
+
+```python
+
+sns.boxplot(data=df_US_top6, x='salary_year_avg',y='job_title_short', order=job_order)
+sns.set_theme(style='ticks')
+
+plt.title('Salary Distribution in The United States')
+plt.ylabel('')
+plt.xlabel('Yearly Salary USD($)')
+plt.xlim(0,600000)
+ticks_x = plt.FuncFormatter(lambda y, pos: f'${int(y/1000)}K')
+plt.gca().xaxis.set_major_formatter(ticks_x)
+plt.show()
+
+ ```
+
+ ### Results
+
+ ![Salary Distributions of Data Jobs in the US](2_Project/images/Salary_Analysis_boxplot.png)
+
+*Boxplot visualizing the salary distribution for the top 6 data job titles.*
+
+**📊 Role-wise Insights**
+
+***🔹Data Analyst***
+
+* Has the lowest median salary among all roles.
+
+* Most salaries fall between $70K and $110K, with a few outliers reaching ~$250K.
+
+***🔹Senior Data Analyst***
+
+* Median salary is higher than Data Analyst but lower than most other senior roles.
+
+* Salaries typically range from $90K to $140K.
+
+* Still includes notable outliers reaching over $250K.
+
+***🔹Data Engineer*** 
+* Median salary is slightly higher than a Data Scientist.
+
+* Most salaries are between $100K and $150K, with outliers up to $500K.
+
+***🔹Data Scientist***
+
+* Median salary is comparable to a Data Engineer.
+
+* Distribution is slightly wider, showing more variance in pay.
+
+***🔹Senior Data Engineer***
+
+* One of the highest median salaries, typically around $150K–$170K.
+
+* High number of outliers above $250K, some even exceeding $400K.
+
+***🔹Senior Data Scientist***
+
+* Has the highest median salary overall.
+
+* Salary range is wide: mostly between $140K and $190K, with top outliers pushing beyond $500K.
+
+**📈 Overall Takeaways**
+
+* Senior Data Scientist and Senior Data Engineer roles are the top-paying positions.
+
+* Engineering and Science roles tend to pay more than Analyst roles, especially at senior levels.
+
+* There's a significant presence of outliers across all roles, suggesting some exceptionally high-paying positions exist.
+
+### Highest Paid & Most Demanded Skills for Data Analysts
+
+### Visualizing Data
+
+```python
+sns.set_theme(style='ticks')
+
+fig, ax = plt.subplots(2,1)
+sns.barplot(data=df_DA_Top_Pay, x='median',y=df_DA_Top_Pay.index,ax= ax[0], hue='median', palette='dark:b_r')
+ax[0].legend().remove()
+ax[0].set_title('Top 10 Highest paid skills for Data Analysts')
+ax[0].set_xlabel(' ')
+ax[0].set_ylabel(' ')
+ax[0].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, i: f'${int(x/1000)}K'))
+
+sns.barplot(data=df_DA_Top_Skills,x='median',y=df_DA_Top_Skills.index,ax=ax[1],hue ='median',palette='dark:r_r')
+ax[1].legend().remove()
+ax[1].set_title('Top 10 in-demand skills for Data Analysts')
+ax[1].set_xlabel(' ')
+ax[1].set_ylabel(' ')
+ax[1].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, i: f'${int(x/1000)}K'))
+
+plt.xlim(0, 200000)
+fig.tight_layout()
+```
+
+### Results
+
+![The Higest Paid & The Most Demanded Skills for Data Analysts in the US](2_Project/images/Salary_Analysis_skills_demand.png)
+*Two Seperate Bar Graphs Visualizing the Highest paid skills and most In-Demand skills for Data Analysts in the US*
+
+### Insights 
+
+* High-paying skills such as dplyr, bitbucket, gitlab, and solidity are not among the most commonly requested ones. This suggests that less common or niche tools—especially those related to programming workflows, version control, blockchain, or cutting-edge platforms like Hugging Face—can command higher salaries due to their specialized nature and lower supply of skilled professionals.
+
+* On the other hand, the most in-demand skills like python, tableau, r, sql, and excel are more foundational or widely used tools in typical data analyst roles. These skills are essential for entering the field, but they may not always lead to the highest salaries, likely due to high supply and broader adoption across industries.
+
+* Tools like power bi, sas, and powerpoint show that employers still value business intelligence and reporting capabilities, reinforcing the importance of communication and visualization skills in analyst roles.
+
+* The contrast between the two charts highlights a valuable takeaway: developing niche or emerging technical skills (e.g., hugging face, couchbase, mxnet) may open doors to higher-paying roles, while mastering core tools (like python, sql, excel) remains critical for landing jobs and staying relevant in the job market.

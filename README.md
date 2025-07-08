@@ -252,6 +252,7 @@ fig.tight_layout()
 ### Results
 
 ![The Higest Paid & The Most Demanded Skills for Data Analysts in the US](2_Project/images/Salary_Analysis_skills_demand.png)
+
 *Two Seperate Bar Graphs Visualizing the Highest paid skills and most In-Demand skills for Data Analysts in the US*
 
 ### Insights 

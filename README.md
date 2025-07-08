@@ -33,7 +33,8 @@ plt.show()
 
 ### Results
 
-![Visualization of most Demanded Skills of Top Data Roles](2_Project\images\Skill_Demand.png)
+![Visualization of most Demanded Skills of Top Data Roles](2_Project/images/Skill_Demand.png)
+*Visualization of Most In-Demand skills of Top Data Roles.*
 
 ### Insights
 
@@ -88,3 +89,59 @@ plt.show()
 * Tools like SAS (24%) and Tableau (24%) are less critical, but still present
 
 *Key Takeaway: Data Scientists require strong programming and statistical skills to extract insights, build models, and contribute to decision-making.*
+
+
+## 1. How are in-demand Skills trending for Data Analysts?
+
+### Visualizing Data
+
+``` python
+
+df_plot = df_DA_US_percent.iloc[:, :5]
+sns.set_theme(style='ticks')
+sns.lineplot(data=df_plot, dashes = False, palette='tab10')
+sns.despine()
+
+plt.title('Trending Top Skills for Data Analysts in the US')
+plt.ylabel('Likelihood in Job Posting')
+plt.xlabel('2023')
+plt.legend().remove()
+
+
+from matplotlib.ticker import PercentFormatter
+plt.gca().yaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+plt.text(11.4, df_plot.iloc[-1, 0],df_plot.columns[0])
+plt.text(11.4, df_plot.iloc[-1, 1],df_plot.columns[1])
+plt.text(11.4, df_plot.iloc[-1, 2],df_plot.columns[2])
+plt.text(11.1, df_plot.iloc[-3, 3],df_plot.columns[3])
+plt.text(11.4, df_plot.iloc[-1, 4],df_plot.columns[4])
+
+plt.tight_layout()
+plt.show()
+
+```
+
+### Results
+
+![Trending Top-Skills for Data Analysts in the US](2_Project/images/Skill_Trend.png) *Linegraph Visualizing the trending top skills for Data Analysts in the US in 2023.*
+
+### Insights
+
+* SQL remains the most in-demand skill throughout the year, maintaining above 50% likelihood in job postings, though slightly dipping in Q4.
+
+* Excel stays consistently important, showing a steady presence around 40–42%, with a small dip in October–November and a bounce back in December.
+
+* Tableau and Python trend closely together, with Tableau slightly leading for most of the year, except a crossover in late summer.
+
+* Python maintains stable demand around 26–29%, showing its consistent value across the year.
+
+* SAS remains the least requested skill, with likelihood hovering around 20%, showing a steady but lower relevance in the market.
+
+**📈 Notable Changes**
+
+* Excel shows a noticeable dip in October–November, possibly due to a shift in reporting tools or role requirements late in the year.
+
+* August sees a temporary spike in Tableau demand, suggesting increased need for data visualization during that period.
+
+* Python and Tableau converge in Q4, showing that either tool could be valuable depending on the job listing.
